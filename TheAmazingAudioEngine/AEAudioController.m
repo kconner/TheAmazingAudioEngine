@@ -665,20 +665,6 @@ static OSStatus topRenderNotifyCallback(void *inRefCon, AudioUnitRenderActionFla
     return audioDescription;
 }
 
-+ (AudioStreamBasicDescription)audioUnitCanonicalAudioDescription {
-    AudioStreamBasicDescription audioDescription;
-    memset(&audioDescription, 0, sizeof(audioDescription));
-    audioDescription.mFormatID          = kAudioFormatLinearPCM;
-    audioDescription.mFormatFlags       = kAudioFormatFlagsAudioUnitCanonical;
-    audioDescription.mChannelsPerFrame  = 2;
-    audioDescription.mBytesPerPacket    = sizeof(AudioUnitSampleType);
-    audioDescription.mFramesPerPacket   = 1;
-    audioDescription.mBytesPerFrame     = sizeof(AudioUnitSampleType);
-    audioDescription.mBitsPerChannel    = 8 * sizeof(AudioUnitSampleType);
-    audioDescription.mSampleRate        = 44100.0;
-    return audioDescription;
-}
-
 + (BOOL)voiceProcessingAvailable {
     // Determine platform name
     static NSString *platform = nil;
